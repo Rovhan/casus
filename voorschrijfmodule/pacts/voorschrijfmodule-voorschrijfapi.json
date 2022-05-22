@@ -1,0 +1,52 @@
+{
+  "consumer": {
+    "name": "voorschrijfmodule"
+  },
+  "provider": {
+    "name": "voorschrijfapi"
+  },
+  "interactions": [
+    {
+      "description": "A get request without an ID",
+      "providerState": "has 3 medicines",
+      "request": {
+        "method": "GET",
+        "path": "/api/medicine"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "name": "Paracetamol",
+            "unit": "strips",
+            "unitsPerPackage": 3,
+            "unitForUnit": "Aantal tabletten per strip",
+            "unitsInUnit": 20
+          },
+          {
+            "name": "Ritalin",
+            "unit": "strips",
+            "unitsPerPackage": 3,
+            "unitForUnit": "Aantal tabletten per strip",
+            "unitsInUnit": 12
+          },
+          {
+            "name": "Oogdruppels",
+            "unit": "flesjes",
+            "unitsPerPackage": 1,
+            "unitForUnit": "Aantal milliliter per flesje",
+            "unitsInUnit": 15
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}

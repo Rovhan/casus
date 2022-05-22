@@ -1,0 +1,27 @@
+<h2>Overzicht van medicijnen</h2>
+<table mat-table [dataSource]="medicines">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Naam </th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+  <ng-container matColumnDef="unit">
+    <th mat-header-cell *matHeaderCellDef> Eenheid </th>
+    <td mat-cell *matCellDef="let element">{{element.unit}}</td>
+  </ng-container>
+  <ng-container matColumnDef="unitsPerPackage">
+    <th mat-header-cell *matHeaderCellDef> Aantal per verpakking </th>
+    <td mat-cell *matCellDef="let element">{{element.unitsPerPackage}}</td>
+  </ng-container>
+  <ng-container matColumnDef="unitsInUnit">
+    <th mat-header-cell *matHeaderCellDef> Inhoud per eenheid </th>
+    <td mat-cell *matCellDef="let element">{{element.unitForUnit}} : {{element.unitsInUnit}}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Voeg recept toe </th>
+    <td mat-cell *matCellDef="let element"><button mat-icon-button (click)="addToRecipe(element)"><mat-icon>add</mat-icon></button></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
